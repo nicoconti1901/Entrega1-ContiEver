@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Turno</title>
+    <link rel="icon" type="image/x-icon" href="{% static 'AppFut/assets/icono1.png' %}" />
+</head>
+<body>
+    <h1>Registro de Turno</h1>
+    <form action="" method="POST"> {% csrf_token %}
+        <table>
+            {{turno.as_table}}
+        </table>
+            
+            
+        <input type="submit" value="Enviar">
+    
+    </form>
+    
+
+</body> 
+</html>
