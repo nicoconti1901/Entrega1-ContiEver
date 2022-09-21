@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
@@ -17,4 +18,25 @@
 
     </form>
 </body>
+=======
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscar Proveedor</title>
+    <link rel="icon" type="image/x-icon" href="{% static 'AppFut/assets/icono1.png' %}" />
+</head>
+<body>
+    <h1>Introduzca el nombre del producto a buscar</h1>
+    <form action="/AppFut/buscar" method="GET">
+
+        <input type="text" name="producto" id="producto">
+        <input type="submit" value="Buscar">
+
+    </form>
+</body>
+>>>>>>> 6c7c70af40c3c22414841de5994e786f2607dce8
 </html>
