@@ -52,7 +52,7 @@ def buscar(request):
     if request.GET["producto"]:
 
         busqueda = request.GET["producto"]
-        proveedores = Proveedores.objects.filter(producto__icontains=busqueda)
+        proveedores = Proveedores.objects.filter(producto__iexact=busqueda)
 
         return render(request, "AppFut/resultadosProve.html", {"proveedores":proveedores, "busqueda":busqueda})
     else:
@@ -68,7 +68,7 @@ def turno(request):
 
             info = formulario3.cleaned_data
 
-            turnoF = Turno(nombre=info["nombre"], fecha=info["fecha"], hora=info["hora"], cancha=info["cancha"], esSocio=info["esSocio"])
+            turnoF = Turno(nombre=info["nombre"], apellido=info["apellido"], fecha=info["fecha"], hora=info["hora"], cancha=info["cancha"], esSocio=info["esSocio"])
         
             turnoF.save()
         

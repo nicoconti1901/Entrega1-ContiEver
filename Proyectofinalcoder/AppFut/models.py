@@ -2,7 +2,12 @@
 from django.db import models
 
 class Turno(models.Model):
+    
+    #def __str__(self):
+        #return f"Turno {self.nombre} {self.apellido}"
+    
     nombre=models.CharField(max_length=50)
+    apellido=models.CharField(max_length=50)
     fecha=models.DateField()
     hora=models.CharField(max_length=30)
     cancha=models.IntegerField()

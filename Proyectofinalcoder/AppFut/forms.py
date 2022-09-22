@@ -19,6 +19,7 @@ class FormularioProve(forms.Form):
 class FormularioTurno(forms.Form):
 
     nombre=forms.CharField(max_length=60)
+    apellido=forms.CharField(max_length=60)
     fecha=forms.DateField()
     hora=forms.CharField(max_length=50)
     cancha=forms.IntegerField()
