@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 """
 WSGI config for Proyectofinalcoder project.
 
@@ -15,21 +15,3 @@ from django.core.wsgi import get_wsgi_application
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'Proyectofinalcoder.settings')
 
 application = get_wsgi_application()
-=======
-"""
-WSGI config for Proyectofinalcoder project.
-
-It exposes the WSGI callable as a module-level variable named ``application``.
-
-For more information on this file, see
-https://docs.djangoproject.com/en/4.1/howto/deployment/wsgi/
-"""
-
-import os
-
-from django.core.wsgi import get_wsgi_application
-
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'Proyectofinalcoder.settings')
-
-application = get_wsgi_application()
->>>>>>> 6c7c70af40c3c22414841de5994e786f2607dce8
