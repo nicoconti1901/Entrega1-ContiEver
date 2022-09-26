@@ -27,6 +27,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('nombre', models.CharField(max_length=60)),
+                ('apellido', models.CharField(max_length=50)),
                 ('direccion', models.CharField(max_length=60)),
                 ('localidad', models.CharField(max_length=50)),
                 ('telefono', models.IntegerField()),
@@ -38,6 +39,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('nombre', models.CharField(max_length=50)),
+                ('apellido', models.CharField(max_length=50)),
                 ('fecha', models.DateField()),
                 ('hora', models.CharField(max_length=30)),
                 ('cancha', models.IntegerField()),

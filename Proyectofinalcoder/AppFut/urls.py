@@ -10,4 +10,5 @@ urlpatterns = [
     path("buscarproveedor/", views.busquedaProve, name = "BuscarProve"),
     path("buscar/",views.buscar),
     path("turno/", views.turno, name = "Turno"),
+    path("listadeprove/", views.verProve, name = "Listadeprove"),
 ]

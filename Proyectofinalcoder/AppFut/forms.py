@@ -5,6 +5,7 @@ from django import forms
 class FormularioSocio(forms.Form):
 
     nombre=forms.CharField(max_length=60)
+    apellido=forms.CharField(max_length=60)
     direccion=forms.CharField(max_length=60)
     localidad=forms.CharField(max_length=50)
     telefono=forms.IntegerField()

@@ -17,7 +17,7 @@ def socio(request):
 
             info = formulario1.cleaned_data
 
-            socioF = Socio(nombre=info["nombre"], direccion=info["direccion"], localidad=info["localidad"], telefono=info["telefono"], email=info["email"])
+            socioF = Socio(nombre=info["nombre"], apellido=info["apellido"], direccion=info["direccion"], localidad=info["localidad"], telefono=info["telefono"], email=info["email"])
         
             socioF.save()
         
@@ -77,3 +77,6 @@ def turno(request):
         formulario3= FormularioTurno()
     return render(request, "AppFut/turno.html", {"turno": formulario3})
 
+def verProve(request):
+    listadeprove = Proveedores.objets.all()
+    return render(request, "AppFut/proveedores.html", {"listadeprove": listadeprove})
