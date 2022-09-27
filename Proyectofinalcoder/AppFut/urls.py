@@ -11,4 +11,6 @@ urlpatterns = [
     path("buscar/",views.buscar),
     path("turno/", views.turno, name = "Turno"),
     path("listadeprove/", views.verProve, name = "Listadeprove"),
+    path("eliminarprove/<proveNombre>", views.eliminarprove, name = "EliminarProveedor"),
+    path("editarprove/<proveNombre>", views.editarProve, name = "EditarProveedor"),
 ]

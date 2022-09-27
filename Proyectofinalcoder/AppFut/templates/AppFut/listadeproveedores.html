@@ -9,10 +9,24 @@
     <link rel="icon" type="image/x-icon" href="{% static 'AppFut/assets/icono1.png' %}" />
 </head>
 <body>
-    {% for prove in listadeprove %}
+    {% for provee in listadeprove %}
     <ul>
-        <li> Nombre: {{prove.nombre}}</li>
+        <li> Nombre: {{provee.nombre}}</li>
+        <button>
+            <a href="{% url 'EliminarProveedor' provee.nombre %}">Eliminar proveedor</a>
+        </button>
+        <button>
+            <a href="{% url 'EditarProveedor' provee.nombre %}">Editar proveedor</a>
+        </button>
     </ul>
+
     {% endfor %}
+    
+
+    <a href="{% url 'Proveedores' %}">Agregar proveedor</a>
+    <br>
+    <br>
+    
+    <a href="{% url 'Inicio' %}">Volver al Inicio</a>
 </body>
 </html>

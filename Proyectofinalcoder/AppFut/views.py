@@ -1,4 +1,5 @@
 
+from ast import Delete
 from django.shortcuts import render
 from AppFut.forms import *
 from AppFut.models import *
@@ -78,5 +79,34 @@ def turno(request):
     return render(request, "AppFut/turno.html", {"turno": formulario3})
 
 def verProve(request):
-    listadeprove = Proveedores.objets.all()
-    return render(request, "AppFut/proveedores.html", {"listadeprove": listadeprove})
+    listadeprove = Proveedores.objects.all()
+    return render(request, "AppFut/listadeproveedores.html", {"listadeprove": listadeprove})
+
+def eliminarprove(request, proveNombre):
+    proveedor = Proveedores.objects.get(nombre=proveNombre)
+    proveedor.delete() 
+
+    listadeprove = Proveedores.objects.all()
+    return render(request, "AppFut/listadeproveedores.html", {"listadeprove": listadeprove})
+
+def editarProve(request, proveNombre):
+    proveedor = Proveedores.objects.get(nombre=proveNombre)
+    if request.method == "POST":
+
+        formulario2 = FormularioProve(request.POST)
+
+        if formulario2.is_valid(): 
+
+            info = formulario2.cleaned_data
+
+            proveedor.nombre = info["nombre"]
+            proveedor.producto = info["producto"]
+            proveedor.email = info["email"]
+            proveedor.telefono = info["telefono"]
+
+            proveedor.save()
+        
+            return render(request, "AppFut/inicio.html")
+    else:
+        formulario2= FormularioProve(initial={"nombre": proveedor.nombre, "producto": proveedor.producto, "email": proveedor.email, "telefono": proveedor.telefono})
+    return render(request, "AppFut/editarprove.html", {"proveedores": formulario2}, {"proveNombre": proveNombre})
