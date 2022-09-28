@@ -4,6 +4,9 @@ from django.shortcuts import render
 from AppFut.forms import *
 from AppFut.models import *
 from django.http import HttpResponse
+from django.views.generic import ListView
+from django.views.generic.edit import CreateView
+from django.views.generic.detail import DetailView
 
 def inicio(request):
     
@@ -110,3 +113,5 @@ def editarProve(request, proveNombre):
     else:
         formulario2= FormularioProve(initial={"nombre": proveedor.nombre, "producto": proveedor.producto, "email": proveedor.email, "telefono": proveedor.telefono})
     return render(request, "AppFut/editarprove.html", {"proveedores": formulario2}, {"proveNombre": proveNombre})
+
+class 
