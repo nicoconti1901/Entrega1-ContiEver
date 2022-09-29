@@ -26,11 +26,17 @@
                 <a class="navbar-brand" href="Inicio">Inicio</a>
                 
                 <div class="collapse navbar-collapse" id="navbarResponsive">
-                    <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
-                        <li class="nav-item"><a class="nav-link" href="{% url 'Socio' %}">Socios</a></li>
+                    <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0"> 
+                        
+                        <li class="nav-item"><a class="nav-link" href="{% url 'CrearSocio' %}">Socios</a></li>
                         <li class="nav-item"><a class="nav-link" href="{% url 'Turno' %}">Turnos</a></li>
                         <li class="nav-item"><a class="nav-link" href="{% url 'Proveedores' %}">Proveedores</a></li>
                         <li class="nav-item"><a class="nav-link" href="{% url 'BuscarProve' %}">Buscar Proveedores</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'Login' %}">Iniciar Sesion</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'Registro' %}">Registrarse</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'Logout' %}">Cerrar Sesion</a></li>
+                        
+                        
                     </ul>
                 </div>
             </div>

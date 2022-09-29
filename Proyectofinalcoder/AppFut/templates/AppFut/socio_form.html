@@ -1,5 +1,3 @@
-
-{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,19 +5,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro de Socio</title>
-    <link rel="icon" type="image/x-icon" href="{% static 'AppFut/assets/icono1.png' %}" />
 </head>
 <body>
-    <h1>Registro de Socio</h1>
+    <h1>Registrar Socio</h1>
     <form action="" method="POST"> {% csrf_token %}
         <table>
-            {{socio.as_table}}
+            {{form.as_table}}
         </table>
-            
-            
+        
+        
         <input type="submit" value="Enviar">
-    
     </form>
-    
-
-</body> 
+    <br>
+    <a href="{% url 'LeerSocio' %}">Lista de Socios</a>
+</body>
+</html>

@@ -1,18 +1,25 @@
 
 from ast import Delete
+from urllib import request
 from django.shortcuts import render
-from AppFut.forms import *
+from AppFut.forms import FormularioProve, FormularioTurno, FormularioRegistro
 from AppFut.models import *
 from django.http import HttpResponse
 from django.views.generic import ListView
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic.detail import DetailView
+from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
+from django.contrib.auth import login, logout, authenticate
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.decorators import login_required
+
+
 
 def inicio(request):
     
     return render(request, "AppFut/inicio.html")
 
-def socio(request):
+"""def socio(request):
     if request.method == "POST":
 
         formulario1 = FormularioSocio(request.POST)
@@ -28,7 +35,7 @@ def socio(request):
             return render(request, "AppFut/inicio.html")
     else:
         formulario1= FormularioSocio()
-    return render(request, "AppFut/socio.html", {"socio": formulario1})
+    return render(request, "AppFut/socio.html", {"socio": formulario1})"""
 
 def proveedores(request):
     if request.method == "POST":
@@ -63,6 +70,7 @@ def buscar(request):
         mensaje = "Usted no ingreso datos"
         return HttpResponse(mensaje)
 
+@login_required
 def turno(request):
     if request.method == "POST":
 
@@ -114,4 +122,60 @@ def editarProve(request, proveNombre):
         formulario2= FormularioProve(initial={"nombre": proveedor.nombre, "producto": proveedor.producto, "email": proveedor.email, "telefono": proveedor.telefono})
     return render(request, "AppFut/editarprove.html", {"proveedores": formulario2}, {"proveNombre": proveNombre})
 
-class 
+class SocioLista(ListView):
+    model = Socio
+
+class SocioCrear(CreateView):
+    model = Socio
+    success_url= "/AppFut/socio/nuevo"
+    fields = ["nombre", "apellido", "direccion", "localidad", "telefono", "email"]
+
+class SocioDetalle(DetailView):
+    model = Socio
+    
+
+class SocioEditar(UpdateView):
+    model = Socio
+    success_url= "/AppFut/socio/nuevo"
+    fields = ["nombre", "apellido", "direccion", "localidad", "telefono", "email"]
+
+class SocioBorrar(DeleteView):
+    model = Socio
+    success_url= "/AppFut/socio"
+
+def iniciar_sesion(request):
+    if request.method == "POST":
+        form = AuthenticationForm(request, data=request.POST)
+        
+        if form.is_valid(): 
+
+            usuario = form.cleaned_data.get("username")
+            contra = form.cleaned_data.get("password")
+
+            user = authenticate(username=usuario, password=contra)
+
+            if user:
+                login(request, user)
+            return render(request, "AppFut/inicio.html", {"mensaje": f"Hola {user}"})
+        else:
+            return render(request, "AppFut/inicio.html", {"mensaje": f"Datos incorrectos!!"})
+    else:
+        form = AuthenticationForm()
+    return render(request, "AppFut/login.html", {"formu3":form})
+
+def registro(request):
+    if request.method == "POST":
+        """formu = UserCreationForm(request.POST)"""
+        formu = FormularioRegistro(request.POST)
+        if formu.is_valid(): 
+            nombreUsuario = formu.cleaned_data["username"]
+            formu.save()
+
+            return render(request, "AppFut/inicio.html", {"mensaje": f"Usuario {nombreUsuario} creado"})
+    
+    else:
+        
+        """formu = UserCreationForm()"""
+        formu = FormularioRegistro()
+    
+    return render(request, "AppFut/registro.html", {"formu4":formu})

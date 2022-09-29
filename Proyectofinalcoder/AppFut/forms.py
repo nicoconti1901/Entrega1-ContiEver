@@ -1,5 +1,7 @@
 
 from django import forms
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
 
 
 class FormularioSocio(forms.Form):
@@ -25,6 +27,15 @@ class FormularioTurno(forms.Form):
     hora=forms.CharField(max_length=50)
     cancha=forms.IntegerField()
     esSocio=forms.BooleanField()
+
+class FormularioRegistro(UserCreationForm):
+    email = forms.EmailField(label= "Ingrese su email")
+    password1 = forms.CharField(label="Ingrese una contraseña", widget=forms.PasswordInput)
+    password2 = forms.CharField(label="Repita la contraseña", widget=forms.PasswordInput)
+
+    class Meta:
+        model = User
+        fields = ["username", "email", "password1", "password2"]
 
 
 
