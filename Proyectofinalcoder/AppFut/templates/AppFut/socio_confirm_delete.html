@@ -1,16 +1,29 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{% static 'AppFut/css/styles.css' %}" rel="stylesheet" />
     <title>Borrar Socio</title>
+    <style>
+        body {
+          background-image: url("{% static 'AppFut/assets/img/blanco.jpg' %}");
+          background-repeat: no-repeat;
+          background-attachment: fixed;
+          background-size: cover;
+        }
+    </style>
 </head>
 <body>
-    <h1>Borrar Socio</h1>
+    <h2>Borrar Socio</h2>
     <form action="" method="POST"> {% csrf_token %}
-    <p>¿Estas seguro que deseas borrar: {{socio.nombre}}?</p>
-    <input type="submit" value="Confirmar">
+    <p> <strong>¿Estas seguro que deseas borrar a: </strong> {{socio.nombre}} {{socio.apellido}}?</p>
+    <input class="btn btn-primary1 btn-xlN1" type="submit" value="Confirmar">
 </form>
+<br>
+
+<a class="btn btn-primary1 btn-xlN2" href="{% url 'Inicio' %}">Volver al Inicio</a>
 </body>
 </html>

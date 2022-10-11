@@ -1,10 +1,20 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{% static 'AppFut/css/styles.css' %}" rel="stylesheet" />
     <title>Registro de Socio</title>
+    <style>
+        body {
+          background-image: url("{% static 'AppFut/assets/img/blanco.jpg' %}");
+          background-repeat: no-repeat;
+          background-attachment: fixed;
+          background-size: cover;
+        }
+    </style>
 </head>
 <body>
     <h1>Registrar Socio</h1>
@@ -12,11 +22,14 @@
         <table>
             {{form.as_table}}
         </table>
+        <br>
+        <input type="submit" class="btn btn-primary btn-xlN" value="Enviar">
         
-        
-        <input type="submit" value="Enviar">
     </form>
     <br>
-    <a href="{% url 'LeerSocio' %}">Lista de Socios</a>
+    <a class="btn btn-primary1 btn-xlN2"href="{% url 'LeerSocio' %}">Lista de Socios</a>
+    <br>
+    <br>
+    <a class="btn btn-primary1 btn-xlN2" href="{% url 'Inicio' %}">Volver al Inicio</a>
 </body>
 </html>

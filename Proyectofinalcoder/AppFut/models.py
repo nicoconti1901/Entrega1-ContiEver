@@ -1,5 +1,7 @@
 
+from distutils.command.upload import upload
 from django.db import models
+from django.contrib.auth.models import User
 
 class Turno(models.Model):
     
@@ -32,6 +34,9 @@ class Proveedores(models.Model):
     email=models.EmailField()
     telefono=models.IntegerField()
 
+class Avatar(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    imagen = models.ImageField(upload_to="avatares", null=True, blank=True)
 
 
 

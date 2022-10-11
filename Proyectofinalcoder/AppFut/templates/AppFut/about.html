@@ -1,0 +1,49 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{% static 'AppFut/css/styles.css' %}" rel="stylesheet" />
+    <title>Acerca de</title>
+</head>
+<body id="page-top">
+    <style>
+                
+        body {
+            background-image: url("{% static 'AppFut/assets/img/fond2.JPEG' %}");
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+            }
+        h1 {
+            background-color: rgb(10, 8, 12);
+            color: rgb(241, 245, 9);
+            }
+        h2{
+            color: rgb(241, 245, 9);
+            }
+        p{
+            color: rgb(233, 233, 227);
+            }
+    </style>
+
+    <h1>Centro deportivo CEN</h1>
+    <h2>Quienes somos</h2>
+    <div>
+        <p>CEN es un centro deportivo con alquiler de canchas de futbol 5</p>
+        <p>Este microemprendimiento fue creado por Conti Ever Nicolas y consta de 10 canchas de futbol 5 con cesped sintetico</p>
+        <p>El nombre CEN representa las inicial del creador del complejo</p>
+        <br>
+        <img height="200px" width="200px" src="{% static 'AppFut/assets/img/cancha1.jfif' %}" alt="">       <img height="200px" width="200px" src="{% static 'AppFut/assets/img/cancha2.jfif' %}" alt="">
+        <br>
+        <br>
+        <img height="200px" width="200px" src="{% static 'AppFut/assets/img/cancha3.jfif' %}" alt="">     <img height="200px" width="200px" src="{% static 'AppFut/assets/img/cancha4.jfif' %}" alt="">
+        <br>
+        <br>
+        
+        <a class="btn btn-primary btn-xlN text-uppercase" href="{% url 'Inicio' %}"> Inicio </a>
+        
+</body>
+</html>

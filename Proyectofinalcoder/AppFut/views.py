@@ -2,7 +2,7 @@
 from ast import Delete
 from urllib import request
 from django.shortcuts import render
-from AppFut.forms import FormularioProve, FormularioTurno, FormularioRegistro
+from AppFut.forms import *
 from AppFut.models import *
 from django.http import HttpResponse
 from django.views.generic import ListView
@@ -15,10 +15,16 @@ from django.contrib.auth.decorators import login_required
 
 
 
+
 def inicio(request):
-    
+    """avatares = Avatar.objects.filter(user=request.user.id)
+    contexto = {"url: avatares[0].imagen.url"}"""
     return render(request, "AppFut/inicio.html")
 
+def about(request):
+    
+    return render(request, "AppFut/about.html")
+    
 """def socio(request):
     if request.method == "POST":
 
@@ -120,7 +126,7 @@ def editarProve(request, proveNombre):
             return render(request, "AppFut/inicio.html")
     else:
         formulario2= FormularioProve(initial={"nombre": proveedor.nombre, "producto": proveedor.producto, "email": proveedor.email, "telefono": proveedor.telefono})
-    return render(request, "AppFut/editarprove.html", {"proveedores": formulario2}, {"proveNombre": proveNombre})
+    return render(request, "AppFut/editarprove.html", {"proveedores": formulario2, "proveNombre": proveNombre})
 
 class SocioLista(ListView):
     model = Socio
@@ -179,3 +185,27 @@ def registro(request):
         formu = FormularioRegistro()
     
     return render(request, "AppFut/registro.html", {"formu4":formu})
+
+def editarUsuario(request):
+    usuario = request.user
+    if request.method == "POST":
+
+        miformulario = FormularioEditarUsuario(request.POST)
+
+        if miformulario.is_valid(): 
+
+            info = miformulario.cleaned_data
+
+            usuario.email = info["email"]
+            usuario.password1 = info["password1"]
+            usuario.password2 = info["password2"]
+            usuario.first_name = info["first_name"]
+            usuario.last_name = info["last_name"]
+           
+
+            usuario.save()
+        
+            return render(request, "AppFut/inicio.html")
+    else:
+        miformulario= FormularioEditarUsuario(initial={"email": usuario.email, "first_name":usuario.first_name, "last_name":usuario.last_name})
+    return render(request, "AppFut/editarUsuarios.html", {"miForm": miformulario, "usuario": usuario})

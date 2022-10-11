@@ -6,6 +6,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{% static 'AppFut/css/styles.css' %}" rel="stylesheet" />
     <title>Buscar Proveedor</title>
     <link rel="icon" type="image/x-icon" href="{% static 'AppFut/assets/icono1.png' %}" />
 </head>
@@ -14,7 +15,7 @@
     <form action="/AppFut/buscar" method="GET">
 
         <input type="text" name="producto" id="producto">
-        <input type="submit" value="Buscar">
+        <input class= "btn btn-primary btn-xlN text-uppercase" type="submit" value="Buscar">
 
     </form>
 </body>
