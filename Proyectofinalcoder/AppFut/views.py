@@ -46,13 +46,13 @@ def about(request):
 def proveedores(request):
     if request.method == "POST":
 
-        formulario2 = FormularioProve(request.POST)
+        formulario2 = FormularioProve(request.POST, request.FILES)
 
         if formulario2.is_valid(): 
 
             info = formulario2.cleaned_data
 
-            proveF = Proveedores(nombre=info["nombre"], producto=info["producto"], email=info["email"], telefono=info["telefono"])
+            proveF = Proveedores(nombre=info["nombre"], producto=info["producto"], email=info["email"], telefono=info["telefono"], imagenPerfil=info['imagenPerfil'])
         
             proveF.save()
         

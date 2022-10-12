@@ -33,10 +33,8 @@ class Proveedores(models.Model):
     producto=models.CharField(max_length=60)
     email=models.EmailField()
     telefono=models.IntegerField()
+    imagenPerfil= models.ImageField(upload_to = 'perfiles', null = True)
 
-class Avatar(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    imagen = models.ImageField(upload_to="avatares", null=True, blank=True)
 
 
 

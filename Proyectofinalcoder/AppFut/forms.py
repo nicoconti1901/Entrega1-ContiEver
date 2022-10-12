@@ -1,7 +1,9 @@
 
+from distutils.command.upload import upload
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
+from AppFut.models import * 
 
 
 class FormularioSocio(forms.Form):
@@ -12,13 +14,20 @@ class FormularioSocio(forms.Form):
     localidad=forms.CharField(max_length=50)
     telefono=forms.IntegerField()
     email=forms.EmailField()
+    
 
-class FormularioProve(forms.Form):
-    nombre=forms.CharField(max_length=60)
+class FormularioProve(forms.ModelForm):
+    
+
+    """nombre=forms.CharField(max_length=60)
     producto=forms.CharField(max_length=60)
     email=forms.EmailField()
-    telefono=forms.IntegerField()
-    
+    telefono=forms.IntegerField()"""
+
+    class Meta:
+        model = Proveedores
+        fields = ["nombre", "producto", "email", "telefono", "imagenPerfil"]
+
 class FormularioTurno(forms.Form):
 
     nombre=forms.CharField(max_length=60)
