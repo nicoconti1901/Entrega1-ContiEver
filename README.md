@@ -1,8 +1,7 @@
 <h1> Primer etapa de proyecto Coder Python </h2>
 El objetivo del proyecto creado es gestionar base de datos de un centro deportivo y que sea accesible al usuario.
 
-![image](https://user-images.githubusercontent.com/112399532/191560416-01851d5d-2a98-42e7-ad39-49c8623d64ee.png)
-
+![image](https://user-images.githubusercontent.com/112399532/195354693-6004e53b-a663-423b-a449-35288d8fd6c7.png)
 
 
 <h2> Funcionalidades</h2>
